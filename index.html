@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>mahi Timetable</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- CSS for Minimalism Style and Responsiveness -->
+  <style>
+    body {
+      font-family: 'Comic Neue', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f7f7f7;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin: 20px 0;
+      color: #333;
+      text-align: center;
+    }
+
+    .day-tabs {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+
+    .day-tabs button {
+      font-size: 1rem;
+      padding: 10px 20px;
+      margin: 10px 5px;
+      border: none;
+      background-color: #2a9d8f;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .day-tabs button.active {
+      background-color: #e63946;
+    }
+
+    .day-tabs button:hover {
+      background-color: #457b9d;
+    }
+
+    .timetable-container {
+      background-color: white;
+      width: 90%;
+      max-width: 700px;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      display: none;
+    }
+
+    .timetable-container.active {
+      display: block;
+    }
+
+    .time-slot {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 15px;
+      font-size: 1rem;
+      padding: 10px;
+      background-color: #f0f0f0;
+      border-radius: 8px;
+    }
+
+    .time-slot:nth-child(odd) {
+      background-color: #e0e0e0;
+    }
+
+    .time-slot div {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .time-slot div span {
+      font-size: 0.9rem;
+      color: #555;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 1.5rem;
+      }
+
+      .day-tabs button {
+        font-size: 0.9rem;
+        padding: 8px 15px;
+      }
+
+      .time-slot {
+        flex-direction: column;
+        font-size: 0.9rem;
+        align-items: flex-start;
+      }
+
+      .time-slot div {
+        align-items: flex-start;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <h1>📅 Weekly Timetable</h1>
+
+  <div class="day-tabs">
+    <button class="active" onclick="showDay('monday')">Monday</button>
+    <button onclick="showDay('tuesday')">Tuesday</button>
+    <button onclick="showDay('wednesday')">Wednesday</button>
+    <button onclick="showDay('thursday')">Thursday</button>
+    <button onclick="showDay('friday')">Friday</button>
+  </div>
+
+  <!-- Monday Timetable -->
+  <div class="timetable-container active" id="monday">
+    <div class="time-slot">
+      <div>09:00 - 09:55</div>
+      <div>FA 📚 <span>Dr. Neelam Pandya</span></div>
+    </div>
+    <div class="time-slot">
+      <div>10:00 - 10:55</div>
+      <div>BM ➗ <span>Prof. Nirav Patel</span></div>
+    </div>
+    <div class="time-slot">
+      <div>11:05 - 12:00</div>
+      <div>IMT 💼 <span>Prof. Hiral Vora</span></div>
+    </div>
+    <div class="time-slot">
+      <div>12:00 - 13:00</div>
+      <div>Lunch Break 🍽️</div>
+    </div>
+    <div class="time-slot">
+      <div>13:00 - 13:40</div>
+      <div>Library 📖</div>
+    </div>
+  </div>
+
+  <!-- Tuesday Timetable -->
+  <div class="timetable-container" id="tuesday">
+    <div class="time-slot">
+      <div>09:00 - 09:55</div>
+      <div>IMT 💼 <span>Prof. Hiral Vora</span></div>
+    </div>
+    <div class="time-slot">
+      <div>10:00 - 10:55</div>
+      <div>IKS-1 🌍 <span>Prof. Shivangi Rajput</span></div>
+    </div>
+    <div class="time-slot">
+      <div>11:05 - 12:00</div>
+      <div>SS 🗣️ <span>Prof. Pallavi Agarwal</span></div>
+    </div>
+    <div class="time-slot">
+      <div>12:00 - 13:00</div>
+      <div>Lunch Break 🍽️</div>
+    </div>
+    <div class="time-slot">
+      <div>13:00 - 13:40</div>
+      <div>Library 📖</div>
+    </div>
+  </div>
+
+  <!-- Wednesday Timetable -->
+  <div class="timetable-container" id="wednesday">
+    <div class="time-slot">
+      <div>09:00 - 09:55</div>
+      <div>BM ➗ <span>Prof. Nirav Patel</span></div>
+    </div>
+    <div class="time-slot">
+      <div>10:00 - 10:55</div>
+      <div>IKS-1 🌍 <span>Prof. Shivangi Rajput</span></div>
+    </div>
+    <div class="time-slot">
+      <div>11:05 - 12:00</div>
+      <div>IMT 💼 <span>Prof. Hiral Vora</span></div>
+    </div>
+    <div class="time-slot">
+      <div>12:00 - 13:00</div>
+      <div>Lunch Break 🍽️</div>
+    </div>
+    <div class="time-slot">
+      <div>13:00 - 13:40</div>
+      <div>Library 📖</div>
+    </div>
+  </div>
+
+  <!-- Thursday Timetable -->
+  <div class="timetable-container" id="thursday">
+    <div class="time-slot">
+      <div>09:00 - 09:55</div>
+      <div>IMT 💼 <span>Prof. Hiral Vora</span></div>
+    </div>
+    <div class="time-slot">
+      <div>10:00 - 10:55</div>
+      <div>IKS-1 🌍 <span>Prof. Shivangi Rajput</span></div>
+    </div>
+    <div class="time-slot">
+      <div>11:05 - 12:00</div>
+      <div>BM ➗ <span>Prof. Nirav Patel</span></div>
+    </div>
+    <div class="time-slot">
+      <div>12:00 - 13:00</div>
+      <div>Lunch Break 🍽️</div>
+    </div>
+    <div class="time-slot">
+      <div>13:00 - 13:40</div>
+      <div>Library 📖</div>
+    </div>
+  </div>
+
+  <!-- Friday Timetable -->
+  <div class="timetable-container" id="friday">
+    <div class="time-slot">
+      <div>09:00 - 09:55</div>
+      <div>BM ➗ <span>Prof. Nirav Patel</span></div>
+    </div>
+    <div class="time-slot">
+      <div>10:00 - 10:55</div>
+      <div>FA 📚 <span>Dr. Neelam Pandya</span></div>
+    </div>
+    <div class="time-slot">
+      <div>11:05 - 12:00</div>
+      <div>SS 🗣️ <span>Prof. Pallavi Agarwal</span></div>
+    </div>
+    <div class="time-slot">
+      <div>12:00 - 13:00</div>
+      <div>Lunch Break 🍽️</div>
+    </div>
+    <div class="time-slot">
+      <div>13:00 - 13:40</div>
+      <div>Library 📖</div>
+    </div>
+  </div>
+
+  <!-- JavaScript to Handle Day Switching and Notifications -->
+  <script>
+    // Function to show the selected day's timetable
+    function showDay(day) {
+      var tabs = document.querySelectorAll('.day-tabs button');
+      var timetables = document.querySelectorAll('.timetable-container');
+
+      // Remove active class from all buttons and timetables
+      tabs.forEach(tab => tab.classList.remove('active'));
+      timetables.forEach(timetable => timetable.classList.remove('active'));
+
+      // Add active class to the clicked button and corresponding timetable
+      document.querySelector(`button[onclick="showDay('${day}')"]`).classList.add('active');
+      document.getElementById(day).classList.add('active');
+    }
+
+    // Request notification permission
+    function requestNotificationPermission() {
+      if ('Notification' in window) {
+        Notification.requestPermission().then(permission => {
+          if (permission === 'granted') {
+            console.log('Notification permission granted.');
+          }
+        });
+      }
+    }
+
+    // Schedule a notification for 11 PM
+    function scheduleNotificationFor11PM() {
+      const now = new Date();
+      let notificationTime = new Date();
+
+      // Set the notification time to today at 11 PM
+      notificationTime.setHours(23, 0, 0, 0);
+
+      // If the current time is after 11 PM, set it to the next day
+      if (now > notificationTime) {
+        notificationTime.setDate(notificationTime.getDate() + 1);
+      }
+
+      const timeUntilNotification = notificationTime.getTime() - now.getTime();
+
+      // Schedule the notification
+      setTimeout(() => {
+        sendNotification();
+      }, timeUntilNotification);
+    }
+
+    // Function to send the notification
+    function sendNotification() {
+      if (Notification.permission === 'granted') {
+        const options = {
+          body: 'This is your scheduled notification for 11 PM!',
+          icon: 'icon.png', // Add your icon here
+        };
+        new Notification('Scheduled Notification', options);
+      }
+    }
+
+    // Call these functions when the site loads
+    requestNotificationPermission();
+    scheduleNotificationFor11PM();
+  </script>
+</body>
+
+</html>
